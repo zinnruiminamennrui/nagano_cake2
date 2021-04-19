@@ -10,20 +10,20 @@ Rails.application.routes.draw do
   get 'customers' => 'customers#update'
   get 'customers/edit' => 'customers#edit'
   get 'customers/my_page' => 'customers#show'
-  resources :products,only: [:index,:show]
-  resources :cart_items,only: [:index,:create,:update,:destroy]
   delete  'cart_items/destroy_all' => 'cart_items#destroy_all'
   post 'orders/confirmation' => 'orders#confirmation'
   get 'orders/complete' => 'orders#complete'
+  resources :products,only: [:index,:show]
+  resources :cart_items,only: [:index,:create,:update,:destroy]
   resources :orders,only: [:new, :create,:index,:show]
   resources :addresses,only: [:index,:create,:edit,:update,:destroy]
 
-  devise_for :managers,:controllers => {
+  devise_for :manager,:controllers => {
     :sessions => 'manager/sessions',
     :registrations => 'manager/registrations'
   }
-  get 'managers/homes' => 'manager#top'
-  patch 'managers/order_products/:id' => 'manager/order_products#update'
+  get 'manager/homes' => 'manager#top'
+  patch 'manager/order_products/:id' => 'manager/order_products#update'
   namespace :manager do
   resources:customers,only:[:index, :show, :edit, :update]
   resources:products,only:[:index, :new, :create,  :show, :edit, :update]

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     :sessions => 'public/sessions',
     :registrations => 'public/registrations'
   }
-  get '/' => 'public/homes#top'
+  root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/hide' => 'public/customers#hide'

@@ -1,0 +1,18 @@
+<div class= 'container'>
+  <div class= 'row'>
+    <div class='col-md-8'>
+      <h3>ジャンル編集</h3>
+      <div class="form-group">
+        <%= form_with model:@genre, url:edit_manager_genre_path, local:true do |f| %>
+        <table>
+          <tr>
+            <td>ジャンル名</td>
+            <td><%= f.text_field :name %></td>
+            <td><%= f.submit '変更を保存', class: 'btn btn-success' %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

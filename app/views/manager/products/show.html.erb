@@ -1,0 +1,12 @@
+<h2>商品詳細画面</h2>
+<div id="img_field">
+    <%= attachment_image_tag @product, :image %>
+</div>
+<p>商品名 <%= @product.name</p>
+<p>商品説明 <%= @product.introduction %></p>
+<p>ジャンル <%= @product.name %></p>
+<p>
+ 税込価格 <%= @product.price %><br>
+（税抜価格）
+</p>
+<p>販売ステータス</p>

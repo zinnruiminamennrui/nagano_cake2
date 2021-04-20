@@ -22,7 +22,7 @@
       <table>
         <tr>
           <td><%= genre.name %></td>
-          <td><!--%= link_to "編集する", edit_manager_genre_path %--></td>
+          <td><%= link_to "編集する", edit_manager_genre_path(genre.id) %></td>
         </tr>
       </table>
       <% end %>

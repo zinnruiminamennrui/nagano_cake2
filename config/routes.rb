@@ -3,20 +3,22 @@ Rails.application.routes.draw do
     :sessions => 'public/sessions',
     :registrations => 'public/registrations'
   }
-  get '/' => 'homes#top'
-  get 'about' => 'homes#about'
-  get 'customers/unsubscribe' => 'customers#unsubscribe'
-  patch 'customers/hide' => 'customers#hide'
-  get 'customers' => 'customers#update'
-  get 'customers/edit' => 'customers#edit'
-  get 'customers/my_page' => 'customers#show'
-  delete  'cart_items/destroy_all' => 'cart_items#destroy_all'
-  post 'orders/confirmation' => 'orders#confirmation'
-  get 'orders/complete' => 'orders#complete'
-  resources :products,only: [:index,:show]
-  resources :cart_items,only: [:index,:create,:update,:destroy]
-  resources :orders,only: [:new, :create,:index,:show]
-  resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+  get '/' => 'public/homes#top'
+  get 'about' => 'public/homes#about'
+  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+  patch 'customers/hide' => 'public/customers#hide'
+  get 'customers' => 'public/customers#update'
+  get 'customers/edit' => 'public/customers#edit'
+  get 'customers/my_page' => 'public/customers#show'
+  delete  'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+  post 'orders/confirmation' => 'public/orders#confirmation'
+  get 'orders/complete' => 'public/orders#complete'
+  scope module: :public do
+   resources :products,only: [:index,:show]
+   resources :cart_items,only: [:index,:create,:update,:destroy]
+   resources :orders,only: [:new, :create,:index,:show]
+   resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+  end
 
   devise_for :manager,:controllers => {
     :sessions => 'manager/sessions',

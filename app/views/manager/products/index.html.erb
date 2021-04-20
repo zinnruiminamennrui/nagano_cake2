@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <h2>商品一覧</h2>
+    <div class="col-xs-10 col-xs-offset-1">
+      <table class="table">
+        <thead>
+          <tr class="info">
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+  				<P>@products.each do |product|</P>
+    				<tr>
+              <td class="info col-xs-1">
+                <p>product.id</p>
+              </td>
+              <td class="text-left">
+                <p> link_to manager_product_path(product)do %></p>
+                  <p>product.name</p>
+              </td>
+              <td class="text-right col-xs-1">
+                <p>¥ product.tax_out_price</p>
+              </td>
+              <td class="text-left col-xs-3">
+                <p> product.genre.name</p>
+              </td>
+              <td class="col-xs-2">
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

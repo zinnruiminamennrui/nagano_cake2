@@ -25,11 +25,9 @@ Rails.application.routes.draw do
   get 'manager/homes' => 'manager#top'
   patch 'manager/order_products/:id' => 'manager/order_products#update'
   namespace :manager do
-  resources:customers,only:[:index, :show, :edit, :update]
-  resources:products,only:[:index, :new, :create,  :show, :edit, :update]
-  resources:genres,only:[:index, :create, :edit, :update]
-  resources:orders,only:[:show, :update]
+  resources :customers,only: [:index, :show, :edit, :update]
+  resources :products,only: [:index,:new,:create,:show,:edit,:update]
+  resources :genres,only: [:index, :create, :edit, :update]
+  resources :orders,only: [:show, :update]
   end
-
-
 end

@@ -1,4 +1,5 @@
 class Manager::ProductsController < ApplicationController
+   before_action :authenticate_manager!
 
   def index
     @products = Product.all
@@ -11,7 +12,7 @@ class Manager::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    # redirect_to manager_product_path(@product.id)
+    redirect_to manager_product_path(@product)
   end
 
   def show
@@ -19,9 +20,13 @@ class Manager::ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to manager_product_path(@product)
   end
 
   private

@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
+  get 'customers/edit' => 'public/customers#edit'
   devise_for :customers,:controllers => {
     :sessions => 'public/sessions',
     :registrations => 'public/registrations'
   }
-  get '/' => 'public/homes#top'
+  root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/hide' => 'public/customers#hide'
-  get 'customers' => 'public/customers#update'
-  get 'customers/edit' => 'public/customers#edit'
+  patch 'customers' => 'public/customers#update'
   get 'customers/my_page' => 'public/customers#show'
   delete  'cart_items/destroy_all' => 'public/cart_items#destroy_all'
   post 'orders/confirmation' => 'public/orders#confirmation'

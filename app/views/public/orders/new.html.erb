@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-2"></div>
+    <div class="col-md-9"><h5>注文情報入力</h5></div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row pb-3">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">支払い方法
+      <div class="radio ml-4">
+        <label><input type="radio" name="payment_method">クレジットカード</label><br>
+        <label><input type="radio" name="payment_method">銀行振込</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">お届け先
+      <div class="radio ml-4">
+        <label><input type="radio" name="addresse">ご自身の住所</label>
+      </div>
+      <p class="ml-5">郵便番号と住所を持ってくる</p>
+      <p class="ml-5">名前を持ってくる</p>
+      <div class="radio ml-4">
+        <label><input type="radio" name="addresse" class="form-group">
+          <label for="sel1">登録済住所から選択</label>
+          <select class="form-control ml-4" id="sel1">
+            <option>登録してる住所を繰り返し処理でもってくる</option>
+            <option>住所2</option>
+          </select>
+        </label>
+      </div>
+      <div class="radio ml-4">
+        <label><input type="radio" name="addresse">新しいお届け先</label>
+      </div>
+      <form class="form-horizontal ">
+        <div class="form-group form-inline">
+          <label class="control-label col-md-4" for="postal_code">郵便番号(ハイフンなし)</label>
+          <input type="postal_code" class="col-md-2" id="postal_code" placeholder="0000000">
+        </div>
+        <div class="form-group form-group-lg form-inline">
+          <label class="control-label col-md-4" for="address">住所</label>
+          <input type="address" class="col-md-6" id="address" placeholder="東京都渋谷区代々木神園町0-0">
+        </div>
+        <div class="form-group form-inline">
+          <label class="control-label col-md-4" for="name">宛名</label>
+          <input type="name" class="col-md-2" id="name" placeholder="令和道子">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-md">確認画面へ進む</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

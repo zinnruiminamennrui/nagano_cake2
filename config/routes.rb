@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'customers/edit' => 'public/customers#edit'
+  patch 'customers' => 'public/customers#update'
   devise_for :customers,:controllers => {
     :sessions => 'public/sessions',
     :registrations => 'public/registrations'
@@ -7,8 +8,7 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-  patch 'customers/hide' => 'public/customers#hide'
-  patch 'customers' => 'public/customers#update'
+  put 'customers/hide' => 'public/customers#hide'
   get 'customers/my_page' => 'public/customers#show'
   delete  'cart_items/destroy_all' => 'public/cart_items#destroy_all'
   post 'orders/confirmation' => 'public/orders#confirmation'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     :sessions => 'manager/sessions',
     :registrations => 'manager/registrations'
   }
-  get 'manager/homes' => 'manager#top'
+  get 'manager/homes' => 'manager/homes#top'
   patch 'manager/order_products/:id' => 'manager/order_products#update'
   namespace :manager do
   resources :customers,only: [:index, :show, :edit, :update]

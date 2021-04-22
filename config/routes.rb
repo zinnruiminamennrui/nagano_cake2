@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'customers/my_page' => 'public/customers#show'
   delete  'cart_items/destroy_all' => 'public/cart_items#destroy_all'
   post 'orders/confirmation' => 'public/orders#confirmation'
+  get 'orders/confirmation' => 'public/orders#confirmation'
+  # ↑追記↑
   get 'orders/complete' => 'public/orders#complete'
   scope module: :public do
    resources :products,only: [:index,:show]

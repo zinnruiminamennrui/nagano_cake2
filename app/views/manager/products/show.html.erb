@@ -4,38 +4,59 @@
   </div>
 </div>
 <div class="container">
-<div clss="row">
-  <div class="col-md-4">
-  <div class="img_field">
-    <%= attachment_image_tag(@product, :image, size:"300x200", fallback:"no_image.jpg") %>
-  </div>
-  </div>
-  <div clas="col-md-6">
-      <div class="row">
-          <div class="col-md-2">
-             <p>商品名</p>
-          </div>
-          <div class="col-md-10">
-             <%= @product.name %>
-          </div>
+  <div clss="row">
+    <div class="col-md-4">
+      <div class="img_field">
+        <%= attachment_image_tag(@product, :image, size:"300x200", fallback:"no_image.jpg") %>
       </div>
-<p>商品説明 <%= @product.introduction %></p>
-<p>ジャンル <%= @product.genre.name %></p>
-<p>
- <!--tax_priceはhelperで提議　(:delimited) は数字を3桁区切り-->
- 税込価格 <%= tax_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)<br>
-（税抜価格）
-</p>
-<p>
-  販売ステータス
-  <% if @product.is_active == true %>
-   <span class="text-success">販売中</span>
-  <% elsif @product.is_active == false %>
-    <span class="text-secondary">販売停止中</span>
-  <% end %>
-</p>
-
-<%= link_to '編集する', edit_manager_product_path(@product), class:"btn btn-success" %>
-</div>
-</div>
+    </div>
+    <div clas="col-md-6">
+        <div class="row">
+            <div class="col-md-2">
+               <p>商品名</p>
+            </div>
+            <div class="col-md-8">
+               <%= @product.name %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+               <p>商品説明</p>
+            </div>
+            <div class="col-md-8">
+               <%= @product.introduction %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+               <p>ジャンル</p>
+            </div>
+            <div class="col-md-8">
+               <%= @product.genre.name %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+               <p>税込価格<br>(税抜価格)</p>
+            </div>
+            <div class="col-md-8">
+               <!--tax_priceはhelperで提議　(:delimited) は数字を3桁区切り-->
+               <%= tax_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+               <p>販売ステータス</p>
+            </div>
+            <div class="col-md-8">
+               <% if @product.is_active == true %>
+                 <span class="text-success">販売中</span>
+                <% elsif @product.is_active == false %>
+                  <span class="text-secondary">販売停止中</span>
+                <% end %>
+            </div>
+        </div>
+      <%= link_to '編集する', edit_manager_product_path(@product), class:"btn btn-success" %>
+    </div>
+  </div>
 </div>

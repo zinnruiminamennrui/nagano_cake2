@@ -1,6 +1,8 @@
 <main>
     <div class="col-md-8 offset-md-1">
-      <h2>会員一覧</h2>
+      <div class="py-4">
+        <h3>会員一覧</h3>
+      </div>
     <table class="table table-hover table-inverse">
   <thead>
     <tr>
@@ -18,7 +20,9 @@
           <%= customer.id %>
         </td>
         <td>
-          <%= customer.name %>
+          <%= link_to manager_customer_path(customer.id) do %>
+            <%= customer.first_name %> <%= customer.last_name %>
+          <% end %>
         </td>
         <td>
           <%= customer.email %>
@@ -28,8 +32,9 @@
         </td>
       </tr>
     <% end %>
-    </tbody>
-    </table>
+    <%= paginate @customer %>
+  </tbody>
+  </table>
     </div>
   </div>
 </div>

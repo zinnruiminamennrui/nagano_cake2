@@ -2,7 +2,6 @@ class Public::ProductsController < ApplicationController
 
   def index
     @products = Product.where(is_active: true)
-    @genres = Genre.all
   end
 
   def show

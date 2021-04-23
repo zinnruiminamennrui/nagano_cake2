@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_034923) do
+ActiveRecord::Schema.define(version: 2021_04_23_004042) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 2021_04_21_034923) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "postal_code"
-    t.string "address"
-    t.string "phone_number"
-    t.boolean "is_deleted", default: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2021_04_21_034923) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end

@@ -2,7 +2,7 @@ class Manager::ProductsController < ApplicationController
    before_action :authenticate_manager!
 
   def index
-    @products = Product.all
+    @products = Product.all.page(params[:page]).per(10)
   end
 
   def new

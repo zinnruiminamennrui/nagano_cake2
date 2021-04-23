@@ -2,7 +2,7 @@
   <div class= 'row'>
     <div class='col px-5 py-5'>
       <h4 class='mx-5'>配送先登録/一覧</h4>
-      <%= form_with model:@addresse,url:addresses_path, local:true do |f| %>
+      <%= form_with model:@addressee,url:addressees_path, local:true do |f| %>
       <table class='new_form my-5'>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
@@ -33,14 +33,14 @@
           </tr>
         </thead>
         <tbody>
-          <% @addresses.each do |addresse| %>
+          <% @addressees.each do |addressee| %>
           <tr>
-            <td><%= addresse.postal_code %></td>
-            <td><%= addresse.address %></td>
-            <td><%= addresse.name %></td>
+            <td><%= addressee.postal_code %></td>
+            <td><%= addressee.address %></td>
+            <td><%= addressee.name %></td>
             <td>
-              <%= link_to "編集する", edit_address_path(addresse.id),class: "btn btn-sm btn-success" %>
-              <%= link_to "削除する", address_path(addresse.id), method: :delete, class: "btn btn-sm btn-danger" %>
+              <%= link_to "編集する", edit_addressee_path(addressee.id),class: "btn btn-sm btn-success" %>
+              <%= link_to "削除する", addressee_path(addressee.id), method: :delete, class: "btn btn-sm btn-danger" %>
             </td>
           </tr>
           <% end %>

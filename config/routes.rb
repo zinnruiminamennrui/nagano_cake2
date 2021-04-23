@@ -19,7 +19,7 @@ Rails.application.routes.draw do
    resources :products,only: [:index,:show]
    resources :cart_items,only: [:index,:create,:update,:destroy]
    resources :orders,only: [:new, :create,:index,:show]
-   resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+   resources :addressees,only: [:index,:create,:edit,:update,:destroy]
   end
 
   devise_for :manager,:controllers => {

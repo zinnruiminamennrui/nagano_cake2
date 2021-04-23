@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true
 
   has_many :orders, dependent: :destroy
-  has_many :addresses, dependent: :destroy
+  has_many :addressees, dependent: :destroy
   has_many :cart_items, dependent: :destroy
 
   devise :database_authenticatable, :registerable,

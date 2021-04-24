@@ -14,3 +14,19 @@
  *= require_self
  */
  @import "bootstrap";
+
+ .pagination {
+  justify-content: center;
+}
+
+.pagination * {
+  margin: 0 7px;
+  text-decoration: none;
+  padding: 10x 5px;
+}
+
+h4 {
+  background-color: #eee;
+  width: 150px;
+  text-align: center;
+}

@@ -1,12 +1,14 @@
-<div class="row">
-  <div class="col-md-11 ml-auto my-4">
-    <h4 class="ml-10">商品一覧</h4>
+<div class="container px-5 py-5">
+  <div class="row mb-3">
+    <div class="col-md-1"></div>
+    <div class="col-md-10"><h4>商品一覧</h4></div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-auto">
-      <table class="table">
+    <div class="col-md-11 mx-auto">
+      <table class="table table-hover">
         <thead class="thead-light">
           <tr>
             <th>商品ID</th>
@@ -23,7 +25,7 @@
              <%= product.id %>
            </td>
            <td>
-            <%= link_to manager_product_path(product) do %>
+            <%= link_to manager_product_path(product), class:"text-dark" do %>
               <%= product.name %>
             <% end %>
             </td>
@@ -44,7 +46,7 @@
         </tbody>
         <% end %>
       </table>
-      <div><%= paginate(@products) %></div>
+      <div class="mb-5"><%= paginate(@products) %></div>
     </div>
   </div>
 </div>

@@ -1,12 +1,19 @@
-<%= attachment_image_tag(@product, :image, size: "200x150", fallback: "no_image") %>
-<p><%= @product.name %></p>
-<p><%= @product.introduction %></p>
-<p>¥<%= tax_price(@product.price).to_s(:delimited) %><span>(税込)</span></p>
-
-<% if @product.is_active == true %>
-  <%= form_with model:@cart_item, url:cart_items_path, method: :post, local:true do |f| %>
-    <%= f.hidden_field :product_id, value: @product.id %>
-    <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
-    <%= f.submit 'カートに入れる', class:"btn btn-success" %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= attachment_image_tag(@product, :image, size: "200x150", fallback: "no_image") %>
+    </div>
+    <div class="col-md-8">
+     <p><%= @product.name %></p>
+     <p><%= @product.introduction %></p>
+     <p>¥<%= tax_price(@product.price).to_s(:delimited) %><span>(税込)</span></p>
+     <% if @product.is_active == true %>
+         <%= form_with model:@cart_item, url:cart_items_path, method: :post, local:true do |f| %>
+         <%= f.hidden_field :product_id, value: @product.id %>
+         <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+         <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+       <% end %>
+     <% end %>
+    </div>
+  </div>
+</div>

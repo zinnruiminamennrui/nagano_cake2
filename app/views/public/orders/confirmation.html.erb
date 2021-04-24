@@ -38,11 +38,12 @@
       </table>
     </div>
   </div>
-
+  <% @orders.each do |order|%>
   <div class="row mb-3">
     <div class="col-md-2">支払い方法</div>
-    <div class="col-md-10">クレジットor銀行振込</div>
+    <div class="col-md-10"><%= order.payment_method_i18n %></div>
   </div>
+  <% end %>
   <div class="row">
     <div class="col-md-2">お届け先</div>
     <div class="col-md-10">
@@ -53,7 +54,7 @@
   <div class="row">
     <div class="col-md-5"></div>
     <div class="col-md-5">
-      <button type="submit" class="btn btn-success btn-md">注文を確定する</button>
+      <submit class="btn btn-success btn-md">注文を確定する</button>
     </div>
     <div class="col-md-2"></div>
   </div>

@@ -20,7 +20,6 @@ Customer.create!(
 )
 
 Manager.create!(
-   name: 'test',
    email: 'test@com',
    password: '123456'
 )

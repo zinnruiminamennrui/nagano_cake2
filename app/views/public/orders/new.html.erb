@@ -8,12 +8,13 @@
     <div class="col-md-1"></div>
     <div class="col-md-11">支払い方法
       <div class="radio ml-4">
-         <%= form_with model:@order,local:true do |f|%>
+        <%= form_with model:@order,url:orders_path,method: :post, local:true do |f|%>
          <%= f.radio_button :payment_method, :credit_card %>
          <%= f.label :payment_method_credit_card,"クレジットカード" %><br>
          <%= f.radio_button :payment_method, :bank_transfer %>
          <%= f.label :payment_method_bank_transfer,"銀行振込" %>
-
+         <%= f.submit "確認画面へ進む",class:"btn btn-success" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -71,9 +72,7 @@
     <div class="col-md-5"></div>
     <div class="col-md-7">
       <div class="form-group">
-        <button type="f.submit" class="btn btn-primary btn-md">確認画面へ進む</button>
       </div>
-       <% end %>
     </div>
   </div>
 </div>

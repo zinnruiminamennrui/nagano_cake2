@@ -6,18 +6,15 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirmation
+    @orders = current_customer.orders
+
   end
 
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
-    flash[:notice] = "ご注文が確定しました。"
-    redirect_to thanx_customers_orders_path
 
-    # もし情報入力でnew_addressの場合ShippingAddressに保存
-    if params[:order][:ship] == "1"
-      current_customer.shipping_address.create(address_params)
-    end
+   
   end
 
   def complete
@@ -27,6 +24,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment,:postage,:status)
   end
 
 end

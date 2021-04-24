@@ -7,8 +7,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -24,38 +22,30 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to customers_my_page_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-home">マイページ</i>
-              <% end %>
+              <%= link_to "マイページ", customers_my_page_path , class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to products_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-goods">商品一覧</i>
-              <% end %>
+              <%= link_to "商品一覧", products_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to cart_items_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-books">カート</i>
-              <% end %>
+              <%= link_to "カート", cart_items_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                <i class="fas fa-sign-out-alt">ログアウト</i>
-              <% end %>
+              <%= link_to "ログアウト",destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <% elsif %>
             <% if manager_signed_in? %>
             <li class="nav-item">
-              <%= link_to "商品一覧", manager_products_path, class: 'fas fa-home nav-link text-dark' %>
+              <%= link_to "商品一覧", manager_products_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "会員一覧", manager_customers_path, class: 'fas fa-home nav-link text-dark' %>
+              <%= link_to "会員一覧", manager_customers_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "注文履歴一覧", manager_homes_path, class: 'fas fa-home nav-link text-dark' %>
+              <%= link_to "注文履歴一覧", manager_homes_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ジャンル一覧", manager_genres_path, class: 'fas fa-home nav-link text-dark' %>
+              <%= link_to "ジャンル一覧", manager_genres_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_manager_session_path, method: :delete, class: 'fas fa-home nav-link text-dark' %>
@@ -63,16 +53,16 @@
             <% end %>
             <% else %>
             <li class="nav-item">
-              <%= link_to "About", about_path, class: 'fas fa-home nav-link text-dark' %>
+              <%= link_to "About", about_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "商品一覧", manager_products_path, class: 'fas fa-link nav-link text-dark' %>
+              <%= link_to "商品一覧", manager_products_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "新規登録", new_customer_registration_path, class: 'fas fa-user-plus nav-link text-dark' %>
+              <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", customer_session_path, class: 'fas fa-sign-in-alt nav-link text-dark' %>
+              <%= link_to "ログイン", customer_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>

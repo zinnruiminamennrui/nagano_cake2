@@ -13,8 +13,7 @@ class Public::OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
-
-   
+    redirect_to orders_confirmation_path
   end
 
   def complete

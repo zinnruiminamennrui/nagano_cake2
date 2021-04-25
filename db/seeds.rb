@@ -35,9 +35,9 @@
     )
   end
 
-Genre.create!(
-   name: "ケーキ",
-)
+#Genre.create!(
+  # name: "ケーキ",
+#)
 
 Genre.create!(
    name: "プリン",
@@ -47,9 +47,9 @@ Genre.create!(
    name: "焼き菓子",
 )
 
-Genre.create!(
-   name: "キャンディ",
-)
+#Genre.create!(
+   #name: "キャンディ",
+#)
 
 Product.create!(
       genre_id: 2,
@@ -66,20 +66,20 @@ Product.create!(
 #)
 =======
 
-Customer.create!(
-   email: 'tanaka@jp',
-   password: '123456',
-   last_name: '田中',
-   first_name: '太郎',
-   last_name_kana: 'タナカ',
-   first_name_kana: 'タロウ',
-   postal_code: '000-0000',
-   address: '東京都',
-   phone_number: '123-456',
-   is_deleted: 'false'
-)
+#Customer.create!(
+ #  email: 'tanaka@jp',
+ #  password: '123456',
+ #  last_name: '田中',
+ #  first_name: '太郎',
+ #  last_name_kana: 'タナカ',
+ #  first_name_kana: 'タロウ',
+ #  postal_code: '000-0000',
+ #  address: '東京都',
+ #  phone_number: '123-456',
+ #  is_deleted: 'false'
+#)
 
-Manager.create!(
-   email: 'test@com',
-   password: '123456'
-)
+#Manager.create!(
+#   email: 'test@com',
+#   password: '123456'
+#)

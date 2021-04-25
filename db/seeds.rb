@@ -64,7 +64,6 @@ Product.create!(
    #email: 'test@com',
    #password: '123456'
 #)
-=======
 
 Customer.create!(
    email: 'tanaka@jp',

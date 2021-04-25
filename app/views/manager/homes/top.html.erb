@@ -17,7 +17,7 @@
         <tr>
           <td><%= link_to order.created_at.to_s(:datetime_mg),manager_order_path(order) %>
           </td>
-          <td><%= order.name %></td>
+          <td><%= order.customer.name %></td>
           <td><></td>
           <td><></td>
         </tr>

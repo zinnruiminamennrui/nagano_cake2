@@ -18,23 +18,27 @@
           </tr>
         </thead>
         <tbody>
+           <% @orders.each do |order|%>
           <tr>
-            <td>yyyy/mm/dd</td>
+            <td><%= order.created_at.to_s(:datetime_jp) %></td>
             <td>
-              〒0000000<br>
-              --------住所-------<br>
-              宛名
+              〒<%= order.postal_code%><br>
+              <%= order.address%><br>
+              <%= order.name%>
             </td>
+            <% order.order_products.each do |order_product| %>
             <td>
-              注文商品A<br>
-              注文商品B
+              <%= order_product.product.name %>
             </td>
-            <td>0000円</td>
-            <td>入金とか発送済みとか</td>
+             <% end %>
+            <td><%= order.total_payment %></td>
+            <td><></td>
+
             <td>
-              <button type="submit" class="btn btn-primary btn-sm">表示する</button>
+              <%= link_to '表示する', order_path(order.id), class:"btn btn-primary btn-sm"%>
             </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

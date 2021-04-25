@@ -6,6 +6,18 @@ class Public::OrdersController < ApplicationController
 
   def confirmation
     @orders = current_customer.orders
+    @order = Order.new(payment_method: params[:order][:payment_method])
+    # ご自身の住所
+    if params[:order][:address] == "1"
+      @order.postal_code = current_customer.postal_code
+      @order.address     = current_customer.address
+      @order.name        = current_customer.last_name + current_customer.first_name
+    elsif params[:order][:address] == "2"
+      customer_addressee = Addressee.find(params[:order][:address])
+      @order.postal_code = customer_addressee.postal_code
+      @order.address     = customer_addressee.address
+      @order.name        = customer_addressee.name
+    end
   end
 
   def create

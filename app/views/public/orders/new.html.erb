@@ -8,12 +8,22 @@
     <div class="col-md-1"></div>
     <div class="col-md-11">支払い方法
       <div class="radio ml-4">
-        <%= form_with model:@order,url:orders_path,method: :post, local:true do |f|%>
+        <%= form_with model:@order,url: orders_confirmation_path,method: :post, local:true do |f|%>
          <%= f.radio_button :payment_method, :credit_card %>
          <%= f.label :payment_method_credit_card,"クレジットカード" %><br>
          <%= f.radio_button :payment_method, :bank_transfer %>
          <%= f.label :payment_method_bank_transfer,"銀行振込" %>
-                   <%= f.radio_button :addressee,"residence", checked: true%>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">お届け先
+      <div class="radio ml-4">
+        <%= f.radio_button :address,"1" %>
+        <%= f.label :address, "ご自身の住所" %>
       </div>
       <p class="ml-5">
         〒<%= current_customer.postal_code %>
@@ -23,13 +33,27 @@
         <%= current_customer.last_name %>
         <%= current_customer.first_name %>
       </p>
+      <div class="radio ml-4">
+        <%= f.radio_button :address,"2"%>
+        <%=f.label :address, "登録済み住所から選択" %>
+      </div>
 
-         <%= f.submit "確認画面へ進む",class:"btn btn-success" %>
-                 <% end %>
+        <!--%= f.select(:addressee_id, current_customer.addressees.all.map {|addressee| [addressee.name, addressee.id, addressee.postal_code, addressee.address] }) %-->
 
+
+      <%= f.submit "確認画面へ進む",class:"btn btn-success" %>
+      <% end %>
+
+
+
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+      <div class="form-group">
       </div>
     </div>
   </div>
 </div>
-
- 

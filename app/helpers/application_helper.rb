@@ -27,5 +27,4 @@ module ApplicationHelper
   def billing(order)
     total_price(current_cart) + order.postage
   end
-
 end

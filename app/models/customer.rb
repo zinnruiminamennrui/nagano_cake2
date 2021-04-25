@@ -18,6 +18,10 @@ class Customer < ApplicationRecord
   has_many :addressees, dependent: :destroy
   has_many :cart_items, dependent: :destroy
 
+  def name
+    last_name + first_name
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

@@ -41,7 +41,6 @@ class Public::OrdersController < ApplicationController
       product:  cart_item.product,
       order:    @order,
       quantity: cart_item.quantity,
-      # sub_price: sub_price(cart_item)
       )
     end
   end

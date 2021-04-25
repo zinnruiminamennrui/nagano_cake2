@@ -1,10 +1,13 @@
 <div class="container">
   <div class="row">
+  　<div class="col-md-12 mx-auto" style="height: 50px;"></div>
+  </div>
+  <div class="row">
     <div class="col-md-4">
       <%= attachment_image_tag(@product, :image, size: "200x150", fallback: "no_image") %>
     </div>
     <div class="col-md-8">
-     <p><%= @product.name %></p>
+     <h3><%= @product.name %></h3>
      <p><%= @product.introduction %></p>
      <p>¥<%= tax_price(@product.price).to_s(:delimited) %><span>(税込)</span></p>
      <% if @product.is_active == true %>

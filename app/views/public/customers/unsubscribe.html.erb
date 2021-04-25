@@ -1,8 +1,13 @@
-<div class="container">
+<div class="container-fluid">
  <div class="row">
-  <div class="col-md-12 py-5">
+  <div class="col-md-12 mx-auto" style="height: 200px;"></div>
+ </div>
+ <div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 py-5">
    <h5 class="text-center">本当に退会しますか？</h5>
   </div>
+  <div class="col-md-4"></div>
  </div>
  <div class="row">
   <div class="col-md-12 pb-5">
@@ -11,8 +16,7 @@
  </div>
  <div class="row">
      <div class="col-md-12 text-center">
-     <div><%= link_to "退会しない", customers_my_page_path,class: "btn btn-primary text-center" %>
-     <%= link_to "退会する", customers_hide_path,method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %></div>
+     <div><%= link_to "　退会しない　", customers_my_page_path,class: "btn btn-primary btn-sm text-center" %>　<%= link_to "　退会する　", customers_hide_path,method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger btn-sm" %></div>
      </div>
  </div>
 </div>

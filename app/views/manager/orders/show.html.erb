@@ -29,7 +29,7 @@
         </tr>
         <tr>
           <th>注文ステータス</th>
-          <td><></td>
+          <td><%= @order.status_i18n %></td>
         </tr>
       </table>
     </div>
@@ -55,13 +55,28 @@
             <td><%= tax_price(f.product.price) %></td>
             <td><%= f.quantity %></td>
             <td><!--%= sub_price(f.product.price) %--></td>
-            <td><ステータス></td>
+            <td><%= f.order_products.making_status_i18n %></td>
             <td><ボタン></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <table class="table table-borderless">
+        <tr>
+          <th>商品合計</th>
+          <td><></td>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <td><%= @order.postage %></td>
+        </tr>
+        <tr>
+          <th>請求金額</th>
+          <td><%=@order.total_payment %></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

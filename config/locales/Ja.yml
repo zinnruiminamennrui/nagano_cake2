@@ -6,21 +6,4 @@ ja:
        previous: <i class="fas fa-angle-left"></i>
        next: <i class="fas fa-angle-right"></i>
        truncate: "..."
- enums:
-   order:
-     payment_method:
-       credit_card: クレジットカード
-       bank_transfer: 銀行振込
-     status:
-       waiting: 入金待ち
-       cofirmartion: 入金確認
-       in_prodouction: 製作中
-       preparing: 発送準備中
-       delivered: 発送済み
-   order_product:
-     making_status:
-       not_possible: 製作不可
-       pending: 制作待ち
-       in_prodouction: 製作中
-       complete: 制作完了
 

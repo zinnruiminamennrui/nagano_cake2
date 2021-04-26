@@ -59,7 +59,8 @@
             <td><%= f.product.name %></td>
             <td><%= tax_price(f.product.price) %></td>
             <td><%= f.quantity %></td>
-            <td><!--%= sub_price(f.product.price) %--></td>
+
+            
             <td>
               <%= form_with model:f , url: manager_order_product_path(f), method: :patch, local:true do |form| %>
               <%= form.select :making_status, OrderProduct.making_statuses.keys, class: "making_status"  %>
@@ -67,6 +68,11 @@
             <td>
               <%= form.submit '更新'  ,class: "btn btn-success" %>
             </td>
+
+            <td><%= sub_price(f) %></td>
+            <td><%= f.making_status_i18n %></td>
+            <td><ボタン></td>
+
           </tr>
             <% end %>
           <% end %>
@@ -77,15 +83,17 @@
       <table class="table table-borderless">
         <tr>
           <th>商品合計</th>
-          <td></td>
+
+          <td><%= @order.total_payment - @order.postage %></td>
+
         </tr>
         <tr>
           <th>送料</th>
-          <td><%= @order.postage %></td>
+          <td><%= @order.postage.to_s(:delimited) %></td>
         </tr>
         <tr>
           <th>請求金額</th>
-          <td><%=@order.total_payment %></td>
+          <td><%=@order.total_payment.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>

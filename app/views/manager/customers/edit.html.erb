@@ -4,50 +4,59 @@
       <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
     </div>
   </div>
-  <div class="row">
   <%= form_with model:@customer,url:manager_customer_path, local:true do |f| %>
+  <div class="row">
   <div class="col-md-10">
       <table class="table table-borderless">
         <tbody>
-          <tr>
-          <td  width="20%">会員ID</th>
+         <tr>
+          <td width="20%">会員ID</td>
           <td width="20%"><%= @customer.id %></td>
+          <td width="60%"></td>
          </tr>
          <tr>
-          <td width="20%"><label for="inputName">氏名</label></td>
-          <td width="20%"><%= f.text_field :last_name, autofocus: true %></td>
-          <td with="60%"><%= f.text_field :first_name, autofocus: true %></td>
-        <tr>
-          <td><label for="inputNameKana">フリガナ</label></td>
-          <td><%= f.text_field :last_name_kana, autofocus: true %> <%= f.text_field :first_name_kana, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><label for="inputPostalCode">郵便番号</label></td>
-          <td><%= f.number_field :postal_code, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><label for="inputAdress">住所</label></td>
-          <td><%= f.text_field :address, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><label for="inputPhoneNumber">電話番号</label></td>
-          <td><%= f.number_field :phone_number, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><label for="inputEmail">メールアドレス</label></td>
+          <td>氏名</td>
+          <td><%= f.text_field :last_name, autofocus: true %></td>
+          <td><%= f.text_field :first_name, autofocus: true %></td>
+         </tr>
+         <tr>
+           <td>フリガナ</td>
+           <td><%= f.text_field :last_name_kana, autofocus: true %></td>
+           <td><%= f.text_field :first_name_kana, autofocus: true %></td>
+         </tr>
+         <tr>
+          <td>郵便番号</td>
+          <td><%= f.text_field :postal_code, autofocus: true %></td>
+          <td></td>
+         </tr>
+         <tr>
+          <td>住所</td>
+          <td colspan="2"><%= f.text_field :address, autofocus: true,style:"width:80%" %></td>
+          <td></td>
+         </tr>
+         <tr>
+          <td>電話番号</td>
+          <td><%= f.text_field :phone_number, autofocus: true %></td>
+          <td></td>
+         </tr>
+         <tr>
+          <td>メールアドレス</td>
           <td><%= f.text_field :email, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><label for="inputStatus">会員ステータス</label></td>
-          <td><%= f.radio_button :is_deleted, true %></td>
-          <td><%= f.label :is_deleted, "有効", value: true %></td>
-          <td><%= f.radio_button :is_deleted, false %></td>
-          <td><%= f.label :is_deleted, "退会", value: false %></td>
-          <td><%= f.submit "変更を保存" %></td>
-        </tr>
+          <td></td>
+         </tr>
+         <tr>
+          <td>会員ステータス</td>
+          <td><%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "有効", value: true %>　<%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "退会", value: false %></td>
+          <td></td>
+         </tr>
+         <tr>
+          <td></td>
+          <td><%= f.submit "　変更を保存　",class:"btn btn-success btn-lg" %></td>
+          <td></td>
+         </tr>
         </tbody>
       </table>
      </div>
-    <% end %>
     </div>
+    <% end %>
   </div>

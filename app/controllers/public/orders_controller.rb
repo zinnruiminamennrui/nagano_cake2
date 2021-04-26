@@ -41,8 +41,12 @@ class Public::OrdersController < ApplicationController
       product:  cart_item.product,
       order:    @order,
       quantity: cart_item.quantity,
+      price: sub_price(cart_item)
       )
     end
+
+    @cart_items.destroy_all
+
   end
 
   def complete

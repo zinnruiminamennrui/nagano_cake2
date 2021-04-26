@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <script src="https://kit.fontawesome.com/0085f55100.js" crossorigin="anonymous"></script>
+
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -51,7 +53,7 @@
               <%= link_to "ジャンル一覧", manager_genres_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_manager_session_path, method: :delete, class: 'fas fa-home nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_manager_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             <% else %>

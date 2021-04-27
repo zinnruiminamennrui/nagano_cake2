@@ -1,8 +1,6 @@
 class Manager::HomesController < ApplicationController
   def top
-   
-   #@orders = Order.where(customer_id:  )
-   
+   @orders = Order.all
   end
 end
 

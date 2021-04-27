@@ -38,7 +38,7 @@
         <%= f.label :address, "登録済み住所から選択" %>
       </div>
       <div>
-        <%= f.collection_select(:addressees_id, @addressee, :id, :addressee_all) %>
+        <%= f.collection_select(:addressees_id, @addressee, :id, :addressee_all,{prompt: "--  選択してください --"}) %>
       </div>
       <div class="radio ml-4">
         <%= radio_button_tag :address,"3"%>

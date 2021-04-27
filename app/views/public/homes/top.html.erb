@@ -1,0 +1,32 @@
+
+<div class="container">
+ <div class="container">
+  <div class="col-md-12 mx-auto" style="height: 200px;"></div>
+ </div>
+ <div class="row align-items-center justify-content-center">
+  <div class="col-md-4"></div>
+  <div class="col-md-8">ようこそ、ながのCAKEへ！</br>このサイトは、ケーキ販売のECサイトになります。</br>会員でない方も商品の閲覧はできますが、</br>購入には会員登録が必要になります。</br></div>
+ </div>
+ <div class="row">
+  <div class="col-md-12 mx-auto" style="height: 200px;"></div>
+ </div>
+ <h2>新着商品</h2>
+ <div class="row">
+     <% @products.first(5). each do |product| %>
+   <div class="card-group">
+   <div class="card card border-light mb-3 ml-1 mr-1">
+   <div class="card-img-top"><%= link_to product_path(product.id) do %>
+     <%= attachment_image_tag(product, :image, size: "200x150", fallback: "no_image") %>
+    <% end %>
+    </div>
+    <div class="card-body">
+    <h5 class="card-title"><%= product.name %></h5>
+     <p class="card-text">¥<%= product.price.to_s(:delimited) %></p>
+    </div>
+    </div>
+   </div>
+  <% end %>
+<div class="d-flex align-items-end">
+    <%= link_to "全ての商品を見る>", products_path, class: "btn-link  pull-right" %>
+</div>
+</div>

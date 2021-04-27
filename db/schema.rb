@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_095451) do
+ActiveRecord::Schema.define(version: 2021_04_26_030755) do
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "addressees", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"
     t.string "postal_code"
@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 2021_04_17_095451) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "postal_code"
-    t.string "address"
-    t.string "phone_number"
-    t.boolean "is_deleted"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_095451) do
     t.integer "product_id"
     t.integer "price"
     t.integer "quantity"
-    t.integer "making_status"
+    t.integer "making_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(version: 2021_04_17_095451) do
     t.string "postal_code"
     t.string "address"
     t.string "name"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "total_payment"
     t.integer "payment_method"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

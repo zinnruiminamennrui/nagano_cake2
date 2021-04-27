@@ -12,7 +12,7 @@ class Public::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to customers_my_page_path
   end
-  
+
   def hide
     @customer = current_customer
       #is_deletedカラムにフラグを立てる(defaultはfalse)
@@ -26,7 +26,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:email,:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_code,:address,:phone_number)
+    params.require(:customer).permit(:email,:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_code,:address,:phone_number,:is_deleted)
   end
 
 end
